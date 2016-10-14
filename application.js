@@ -50,7 +50,7 @@ var idCache = {};
  * ******************************************************/
 function resizeCanvas() {
   var cWidth = document.getElementById('sidebar').offsetLeft - 52;
-  var cHeight = window.innerHeight - document.getElementsByTagName('h1')[0].offsetHeight;
+  var cHeight = window.innerHeight - document.getElementsByTagName('h1')[0].offsetHeight - 27;
   canvas.style.width = cWidth;
   canvas.style.height = cHeight;
 }
