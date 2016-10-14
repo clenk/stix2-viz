@@ -44,6 +44,17 @@ var labelGraph = {
 
 var idCache = {};
 
+
+/* ******************************************************
+ * Resizes the canvas based on the size of the window
+ * ******************************************************/
+function resizeCanvas() {
+  var cWidth = document.getElementById('sidebar').offsetLeft - 52;
+  var cHeight = window.innerHeight - document.getElementsByTagName('h1')[0].offsetHeight;
+  canvas.style.width = cWidth;
+  canvas.style.height = cHeight;
+}
+
 /* ----------------------------------------------------- *
  * ******************************************************
  * This group of functions is for handling file "upload."
@@ -119,6 +130,7 @@ function addToGraph(package) {
 
   buildNodes(package);
   initGraph();
+  resizeCanvas();
 }
 
 /* ******************************************************
@@ -558,3 +570,4 @@ document.getElementById('fetch-url').addEventListener('click', handleFetchJson, 
 document.getElementById('header').addEventListener('click', resetPage, false);
 uploader.addEventListener('dragover', handleDragOver, false);
 uploader.addEventListener('drop', handleFileDrop, false);
+window.onresize = resizeCanvas;
